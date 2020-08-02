@@ -1,5 +1,3 @@
-"use strict";
-
 const AMOUNT_OF_DAYS = 1;
 const AMOUNT_OF_POINTS = 3;
 
