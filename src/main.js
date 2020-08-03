@@ -1,11 +1,18 @@
 import {render} from "./view/utils.js";
-import {createTripInfoTemplate, createTripInfoMainTemplate, createTripInfoCostTemplate} from "./view/trip-info.js";
+import {createTripInfoTemplate} from "./view/trip-info.js";
+import {createTripInfoMainTemplate} from "./view/trip-info-main.js";
+import {createTripInfoCostTemplate} from "./view/trip-info-cost.js";
 import {createMenuTemplate} from "./view/trip-tabs.js";
 import {createFiltresTemplate} from "./view/trip-filters.js";
 import {createSortTemplate} from "./view/trip-sort";
-import {createEventTemplate, createEventDetailsTemplate, createEventOffersTemplate, createEventDestinationTemplate} from "./view/trip-event.js";
-import {createTripDaysTemplate, createDayTemplate} from "./view/trip-days.js";
-import {createTripEventItemTemplate, createTripEventEditItemTemplate} from "./view/trip-event-item.js";
+import {createEventTemplate} from "./view/trip-event.js";
+import {createEventDetailsTemplate} from "./view/trip-event-details.js";
+import {createEventOffersTemplate} from "./view/trip-event-offers.js";
+import {createEventDestinationTemplate} from "./view/trip-event-destination.js";
+import {createTripDaysTemplate} from "./view/trip-days.js";
+import {createDayTemplate} from "./view/trip-day.js";
+import {createTripEventItemTemplate} from "./view/trip-event-item.js";
+import {createTripEventEditItemTemplate} from "./view/trip-event-edit-item.js";
 
 const AMOUNT_OF_DAYS = 1;
 const AMOUNT_OF_POINTS = 3;
