@@ -4,10 +4,10 @@ import {createInfoMainTemplate} from "./view/info-main.js";
 import {createMenuTemplate} from "./view/menu.js";
 import {createFiltresTemplate} from "./view/filters.js";
 import {createSortTemplate} from "./view/sort";
-import {createEventWithDestinationTemplate} from "./view/event-with-destination.js";
+import {createEventTemplate} from "./view/event.js";
+import {createDaysTemplate} from "./view/days.js";
 import {createDayTemplate} from "./view/day.js";
-import {createEventItemTemplate} from "./view/event-item.js";
-import {createEventEditItemTemplate} from "./view/event-edit-item.js";
+import {createPointTemplate} from "./view/point.js";
 
 const AMOUNT_OF_DAYS = 1;
 const AMOUNT_OF_POINTS = 3;
@@ -31,7 +31,8 @@ const tripEventsHeader = tripEvents.querySelector(`h2`);
 render(tripEventsHeader, createSortTemplate(), `afterend`);
 
 const tripSort = tripEvents.querySelector(`.trip-sort`);
-render(tripSort, createEventWithDestinationTemplate(), `afterend`);
+render(tripSort, createEventTemplate(), `afterend`);
+render(tripEvents, createDaysTemplate(), `beforeend`);
 
 const tripDays = tripEvents.querySelector(`.trip-days`);
 for (let i = 0; i < AMOUNT_OF_DAYS; i++) {
@@ -41,9 +42,6 @@ for (let i = 0; i < AMOUNT_OF_DAYS; i++) {
 const tripDaysItems = tripDays.querySelectorAll(`.trip-events__list`);
 for (let i = 0; i < tripDaysItems.length; i++) {
   for (let j = 0; j < AMOUNT_OF_POINTS; j++) {
-    render(tripDaysItems[i], createEventItemTemplate(), `beforeend`);
+    render(tripDaysItems[i], createPointTemplate(), `beforeend`);
   }
 }
-
-const firstTripEventsItem = tripDaysItems[0].querySelector(`.trip-events__item:first-child`);
-render(firstTripEventsItem, createEventEditItemTemplate(), `afterend`);
