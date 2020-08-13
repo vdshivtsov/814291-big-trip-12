@@ -1,4 +1,4 @@
-import {render} from "./view/utils.js";
+import {render} from "./utils.js";
 import {createInfoWithCostTemplate} from "./view/info-with-cost.js";
 import {createInfoMainTemplate} from "./view/info-main.js";
 import {createMenuTemplate} from "./view/menu.js";
