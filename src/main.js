@@ -8,9 +8,11 @@ import {createEventTemplate} from "./view/event.js";
 import {createDaysTemplate} from "./view/days.js";
 import {createDayTemplate} from "./view/day.js";
 import {createPointTemplate} from "./view/point.js";
+import {generatePoints} from "./mock/point.js";
 
 const AMOUNT_OF_DAYS = 1;
-const AMOUNT_OF_POINTS = 3;
+
+const points = generatePoints();
 
 const pageHeader = document.querySelector(`.page-header`);
 const tripMain = pageHeader.querySelector(`.trip-main`);
@@ -41,7 +43,7 @@ for (let i = 0; i < AMOUNT_OF_DAYS; i++) {
 
 const tripDaysItems = tripDays.querySelectorAll(`.trip-events__list`);
 for (let i = 0; i < tripDaysItems.length; i++) {
-  for (let j = 0; j < AMOUNT_OF_POINTS; j++) {
-    render(tripDaysItems[i], createPointTemplate(), `beforeend`);
+  for (let j = 0; j < points.length; j++) {
+    render(tripDaysItems[i], createPointTemplate(points[j]), `beforeend`);
   }
 }

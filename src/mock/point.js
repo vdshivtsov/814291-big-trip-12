@@ -1,5 +1,7 @@
 import {getRandomInteger} from "../utils.js";
 
+const AMOUNT_OF_POINTS = 20;
+
 const generateOptions = (type) => {
   const OPTION_MOCKS = new Map([
     [`Add luggage`, 30],
@@ -76,5 +78,9 @@ const generatePoint = () => {
   };
 };
 
-export {generatePoint};
+const generatePoints = () => {
+  return new Array(AMOUNT_OF_POINTS).fill().map(generatePoint);
+};
+
+export {generatePoints};
 
