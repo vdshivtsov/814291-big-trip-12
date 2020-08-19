@@ -45,6 +45,28 @@ const getDurationString = (duration) => {
   return result;
 };
 
+const createPointOffersTemplate = (point) => {
+  if (typeof point.options === `undefined` || point.options.length === 0) {
+    return ``;
+  } else {
+    let result = `
+      <h4 class="visually-hidden">Offers:</h4>
+      <ul class="event__selected-offers">`;
+    for (let i = 0; i < point.options.length && i < 3; i++) {
+      const [title, price] = point.options[i].values().next().value.entries().next().value;
+      result += `
+        <li class="event__offer">
+          <span class="event__offer-title">${title}</span>
+          + €&nbsp;
+          <span class="event__offer-price">${price}</span>
+        </li>`;
+    }
+    result += `</ul>`;
+
+    return result;
+  }
+};
+
 const createPointTemplate = (point) => {
   return `
     <li class="trip-events__item">
@@ -64,17 +86,10 @@ const createPointTemplate = (point) => {
         </div>
 
         <p class="event__price">
-          €&nbsp;<span class="event__price-value">20</span>
+          €&nbsp;<span class="event__price-value">${point.price}</span>
         </p>
 
-        <h4 class="visually-hidden">Offers:</h4>
-        <ul class="event__selected-offers">
-          <li class="event__offer">
-            <span class="event__offer-title">Order Uber</span>
-            +
-            €&nbsp;<span class="event__offer-price">20</span>
-          </li>
-        </ul>
+        ${createPointOffersTemplate(point)}
 
         <button class="event__rollup-btn" type="button">
           <span class="visually-hidden">Open event</span>
